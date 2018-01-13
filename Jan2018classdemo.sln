@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jan2018DemoWebsite", "Jan2018DemoWebsite\Jan2018DemoWebsite.csproj", "{DC9F7866-DCCD-4CE9-8FEB-2C31D0EC3567}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChinookSystem", "ChinookSystem\ChinookSystem.csproj", "{58F08A8B-3019-4051-864D-3FF3423D7776}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chinook.Data", "Chinook.Data\Chinook.Data.csproj", "{C8890684-3713-47C5-9C8A-F3969B8D5DF0}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC9F7866-DCCD-4CE9-8FEB-2C31D0EC3567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9F7866-DCCD-4CE9-8FEB-2C31D0EC3567}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9F7866-DCCD-4CE9-8FEB-2C31D0EC3567}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9F7866-DCCD-4CE9-8FEB-2C31D0EC3567}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58F08A8B-3019-4051-864D-3FF3423D7776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F08A8B-3019-4051-864D-3FF3423D7776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F08A8B-3019-4051-864D-3FF3423D7776}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F08A8B-3019-4051-864D-3FF3423D7776}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8890684-3713-47C5-9C8A-F3969B8D5DF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8890684-3713-47C5-9C8A-F3969B8D5DF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8890684-3713-47C5-9C8A-F3969B8D5DF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8890684-3713-47C5-9C8A-F3969B8D5DF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
