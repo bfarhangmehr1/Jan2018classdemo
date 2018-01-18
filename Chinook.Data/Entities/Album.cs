@@ -23,7 +23,7 @@ namespace Chinook.Data.Entities
         public string ReleaseLabel { get; set; }
 
         //navigational properties
-        public virtual Artist  Artist { get; set; }
+        public virtual Artist  Artists { get; set; }
         public virtual ICollection<Track> Tracks { get; set; }
     }
 }
