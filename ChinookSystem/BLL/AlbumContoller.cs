@@ -27,7 +27,7 @@ namespace ChinookSystem.BLL
         }
         public Album Albums_Get(int albumid)
         {
-            //create and transacoion ijnstance of your context class
+            //create and transacoion instance of your context class
             using (var context = new ChinookContext())
             {
                 // call to linq method not only extension 
