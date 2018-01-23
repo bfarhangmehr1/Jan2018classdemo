@@ -10,25 +10,25 @@
 namespace Jan2018DemoWebsite.SamplePages {
     
     
-    public partial class ODSCRUD {
+    public partial class ODSQuery {
         
         /// <summary>
-        /// AlbumCRUD control.
+        /// AlbumList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView AlbumCRUD;
+        protected global::System.Web.UI.WebControls.GridView AlbumList;
         
         /// <summary>
-        /// AlbumCRUDODS control.
+        /// AlbumListODS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource AlbumCRUDODS;
+        protected global::System.Web.UI.WebControls.ObjectDataSource AlbumListODS;
         
         /// <summary>
         /// ArtistListODS control.
