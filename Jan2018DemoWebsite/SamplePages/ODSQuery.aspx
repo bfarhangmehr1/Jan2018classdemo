@@ -8,7 +8,7 @@
              AllowPaging="True"  PageSize="15"
              BorderStyle="None" 
             GridLines="Horizontal"
-            CellPadding ="5" CellSpacing="0" OnSelectedIndexChanged="AlbumList_SelectedIndexChanged">
+            CellPadding ="5" CellSpacing="0" OnSelectedIndexChanged="AlbumList_SelectedIndexChanged" CssClass="table tabel-hover tabel stripped">
             <Columns>
                 <asp:TemplateField HeaderText="Id" SortExpression="AlbumId">
                     
