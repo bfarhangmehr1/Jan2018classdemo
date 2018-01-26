@@ -243,3 +243,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+Jan2018DemoWebsite/WebConnectionStrings.config
