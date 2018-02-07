@@ -77,14 +77,13 @@ where pl.PlaylistTracks.Count() > 0
  // their title and the number of customer each supports. Order by fullname
 
 from x in Employees
-orderby x.LastName + x.FirstName,
+orderby x.LastName + x.FirstName
+where x.SupportRepIdCustomers.Count()>0
 
 select new 
 {
-  full
+  fullname= x.LastName + x.FirstName,
+  Title= x.Title,
+  NumberOfCustomer = x.SupportRepIdCustomers.Count()
+  
 }
-
-
-
-
-
