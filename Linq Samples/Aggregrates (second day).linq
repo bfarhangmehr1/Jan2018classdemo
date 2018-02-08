@@ -1,4 +1,4 @@
-<Query Kind="Statements">
+<Query Kind="Expression">
   <Connection>
     <ID>c5be593d-ef5e-4c43-a753-19f9d99ce380</ID>
     <Server>.</Server>
@@ -78,12 +78,15 @@ where pl.PlaylistTracks.Count() > 0
 
 from x in Employees
 orderby x.LastName + x.FirstName
-where x.SupportRepIdCustomers.Count()>0
+where x.Title.Contains("Support")
 
 select new 
 {
-  fullname= x.LastName + x.FirstName,
+  fullname= x.LastName +  " ," + x.FirstName,
   Title= x.Title,
   NumberOfCustomer = x.SupportRepIdCustomers.Count()
   
 }
+
+
+
