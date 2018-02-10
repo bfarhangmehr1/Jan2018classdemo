@@ -1,7 +1,6 @@
 <Query Kind="Program">
   <Connection>
     <ID>c5be593d-ef5e-4c43-a753-19f9d99ce380</ID>
-    <Persist>true</Persist>
     <Server>.</Server>
     <Database>Chinook</Database>
   </Connection>
