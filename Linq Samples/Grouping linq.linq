@@ -61,7 +61,7 @@ select new
 }
 
 
-//grouping can be done agaisnt intire entity
+//grouping can be done agaisnt entire entity
 
 from t in Tracks 
 where t.Album.ReleaseYear >2010
@@ -112,9 +112,3 @@ select new
   artist = xRightSide.Name,
   trackcount = yLeftSide.Tracks.Count()
 }
-
-
-
-
-
-
