@@ -53,44 +53,74 @@ void Main()
 	//ToList() is useful if you require your data to be in memory
 	//    for some execution
 	
-	//from x in Albums
-	//where x.Tracks.Count() >= 25
-	//select new
-	//{
-	//	title = x.Title,
-	//	artist = x.Artist.Name,
-	//	songs = (from y  in x.Tracks
-	//			select new
-	//			{
-	//				songtitle = y.Name,
-	//				length = y.Milliseconds/60000 + ":" + 
-	//							(y.Milliseconds%60000)/1000
-	//			}).ToList()
-	//}
+	
+	var TrackCountlimit= 25;
+    var results= from x in Albums
+	where x.Tracks.Count() >= TrackCountlimit
+	select new ArtistTitle
+	{
+		title = x.Title,
+		artist = x.Artist.Name,
+		songs = (from y  in x.Tracks
+				select new TracksAndLength
+				{
+					songtitle = y.Name,
+					length = y.Milliseconds/60000 + ":" + 
+								(y.Milliseconds%60000)/1000
+				}).ToList()
+	};
+	
+	results.Dump();
+}
+
+
+	public Class TracksAndLength
+	{
+       public string songtitle {get;set;}
+	   public int length {get;set;}
+	}
+	
+public class ArtistTitle
+{
+	public string title {get;set;}
+	public string artist {get;set;}
+	public List<TracksAndLength> songs{get;set;}
+}
+	
+	
 	
 	//List the playlists with more than 15 tracks.
 	//show the playlist name, and list of tracks.
 	//for each track show the song name, and Genre
 	
-	var trackcountlimit = 15;  //could be an input parameter
 	
-	//use of a "parameter value" on your query
 	
-	var results = from x in Playlists
-				where x.PlaylistTracks.Count() > trackcountlimit
-				select new ClientPlaylist
-				{
-					playlist = x.Name,
-					songs = (from y in x.PlaylistTracks
-							select new TracksAndGenre
-							{
-								songtitle = y.Track.Name,
-								songgenre = y.Track.Genre.Name,
-							}).ToList()
-				};
-	results.Dump();
+	
+	
+	
+//	var trackcountlimit = 15;  //could be an input parameter
+//	
+//	//use of a "parameter value" on your query
+//	
+//	var results = from x in Playlists
+//				where x.PlaylistTracks.Count() > trackcountlimit
+//				select new ClientPlaylist
+//				{
+//					playlist = x.Name,
+//					songs = (from y in x.PlaylistTracks
+//							select new TracksAndGenre
+//							{
+//								songtitle = y.Track.Name,
+//								songgenre = y.Track.Genre.Name,
+//							}).ToList()
+//				};
+//	results.Dump();
+//
+//}
 
-}
+
+
+
 
 // Define other methods and classes here
 
@@ -110,16 +140,18 @@ void Main()
 //   single database table
 
 //POCO scope : flat, not an entity
-public class TracksAndGenre
-{
-	public string songtitle {get;set;}
-	public string songgenre {get;set;}
-}
 
-//DTO scope : internal structure
 
-public class ClientPlaylist
-{
-	public string playlist {get;set;}
-	public List<TracksAndGenre> songs{get;set;}
-}
+//public class TracksAndGenre
+//{
+//	public string songtitle {get;set;}
+//	public string songgenre {get;set;}
+//}
+//
+////DTO scope : internal structure
+//
+//public class ClientPlaylist
+//{
+//	public string playlist {get;set;}
+//	public List<TracksAndGenre> songs{get;set;}
+//}
