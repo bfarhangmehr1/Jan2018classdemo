@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\ArtistTitle.cs" />
     <Compile Include="DTOs\ClientPlaylist.cs" />
     <Compile Include="Entities\Album.cs" />
     <Compile Include="Entities\Artist.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Entities\Track.cs" />
     <Compile Include="POCOs\ArtistAlbumCounts.cs" />
     <Compile Include="POCOs\TracksAndGenre.cs" />
+    <Compile Include="POCOs\TracksAndLength.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
