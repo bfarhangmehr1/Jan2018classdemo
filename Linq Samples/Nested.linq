@@ -22,25 +22,54 @@ void Main()
 	// x.navigationproperty will point to the current children belonging
 	//   to the x record
 	
-	//from employeeRow in Employees
-	//where employeeRow.Title.Contains("Support")
-	//orderby employeeRow.LastName, employeeRow.FirstName
-	//select new
-	//{
-	//	Name = employeeRow.LastName + ", " + employeeRow.FirstName,
-	//	//title = employeeRow.Title,
-	//	ClientCount = employeeRow.SupportRepIdCustomers.Count(),
-	//	ClientList = from customerRowOfemployeeRow in employeeRow.SupportRepIdCustomers
-	//					orderby customerRowOfemployeeRow.LastName, 
-	//								customerRowOfemployeeRow.FirstName
-	//					select new
-	//							{
-	//								Client = customerRowOfemployeeRow.LastName + ", " + 
-	//											customerRowOfemployeeRow.FirstName,
-	//								Phone = customerRowOfemployeeRow.Phone
-	//							}
-	//}
-	
+   var results= Employee_GetClientList();
+	results.Dump();
+
+}
+
+public class ClientInfo
+{
+    public string Client {get;set;}
+	public string Phone{get;set;}
+}
+
+public class EmployeeClients
+{
+    public string Name {get;set;}
+	public int ClientCount{get;set;}
+	public IEnumerable <ClientInfo> ClientList{get;set;}
+}
+
+//in the BLL query is the method creat the method and test here
+ public List<EmployeeClients> Employee_GetClientList()
+ { 
+  var results= from employeeRow in Employees
+	where employeeRow.Title.Contains("Support")
+	orderby employeeRow.LastName, employeeRow.FirstName
+	select new EmployeeClients
+	{
+		Name = employeeRow.LastName + ", " + employeeRow.FirstName,
+		//title = employeeRow.Title,
+		ClientCount = employeeRow.SupportRepIdCustomers.Count(),
+		ClientList = (from customerRowOfemployeeRow in employeeRow.SupportRepIdCustomers
+						orderby customerRowOfemployeeRow.LastName, 
+									customerRowOfemployeeRow.FirstName
+						select new ClientInfo
+								{
+									Client = customerRowOfemployeeRow.LastName + ", " + 
+												customerRowOfemployeeRow.FirstName,
+									Phone = customerRowOfemployeeRow.Phone
+								}).ToList()
+								
+	};
+    return results.ToList();
+ }
+
+
+
+
+
+
 	//Create a list of albums showing its title and artist.
 	//Show albums with 5 or more tracks only.
 	//Show the songs on the album (name and length)
@@ -53,40 +82,40 @@ void Main()
 	//ToList() is useful if you require your data to be in memory
 	//    for some execution
 	
-	
-	var TrackCountlimit= 25;
-    var results= from x in Albums
-	where x.Tracks.Count() >= TrackCountlimit
-	select new ArtistTitle
-	{
-		title = x.Title,
-		artist = x.Artist.Name,
-		songs = (from y  in x.Tracks
-				select new TracksAndLength
-				{
-					songtitle = y.Name,
-					length = y.Milliseconds/60000 + ":" + 
-								(y.Milliseconds%60000)/1000
-				}).ToList()
-	};
-	
-	results.Dump();
-}
-
-
-	public Class TracksAndLength
-	{
-       public string songtitle {get;set;}
-	   public int length {get;set;}
-	}
-	
-public class ArtistTitle
-{
-	public string title {get;set;}
-	public string artist {get;set;}
-	public List<TracksAndLength> songs{get;set;}
-}
-	
+//	
+//	var TrackCountlimit= 25;
+//    var results= from x in Albums
+//	where x.Tracks.Count() >= TrackCountlimit
+//	select new ArtistTitle
+//	{
+//		title = x.Title,
+//		artist = x.Artist.Name,
+//		songs = (from y  in x.Tracks
+//				select new TracksAndLength
+//				{
+//					songtitle = y.Name,
+//					length = y.Milliseconds/60000 + ":" + 
+//								(y.Milliseconds%60000)/1000
+//				}).ToList()
+//	};
+//	
+//	results.Dump();
+//}
+//
+//
+//	public Class TracksAndLength
+//	{
+//       public string songtitle {get;set;}
+//	   public int length {get;set;}
+//	}
+//	
+//public class ArtistTitle
+//{
+//	public string title {get;set;}
+//	public string artist {get;set;}
+//	public List<TracksAndLength> songs{get;set;}
+//}
+//	
 	
 	
 	//List the playlists with more than 15 tracks.

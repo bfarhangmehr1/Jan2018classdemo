@@ -54,7 +54,8 @@
                         <li><a runat="server" href="~/SamplePages/ODSCRUD.aspx">CRUD</a></li>
                         <li><a runat="server" href="~/SamplePages/ODSQuery.aspx">ODS Query</a></li>
                         <li><a runat="server" href="~/SamplePages/AlbumDetails.aspx">ListView</a></li>
-                         <li><a runat="server" href="~/SamplePages/ODSRepeater.aspx">ODS Repeater</a></li>
+                         <li><a runat="server" href="~/SamplePages/ODSRepeater.aspx">Repeater Repeater</a></li>
+                        <li><a runat="server" href="~/SamplePages/EmployeeClientSupport.aspx"> Repeater GVLV</a></li>
                          <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>

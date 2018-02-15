@@ -52,9 +52,9 @@
   <ItemGroup>
     <Compile Include="BLL\AlbumContoller.cs" />
     <Compile Include="BLL\ArtistController.cs" />
+    <Compile Include="BLL\EmployeeController.cs" />
     <Compile Include="BLL\PlaylistController.cs" />
     <Compile Include="BLL\TrackController.cs" />
-    <Compile Include="BLL\TrackLengthController.cs" />
     <Compile Include="DAL\ChinookContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
