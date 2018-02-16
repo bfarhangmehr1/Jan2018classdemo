@@ -1,7 +1,8 @@
-<Query Kind="Program">
+<Query Kind="Expression">
   <Connection>
-    <ID>c5be593d-ef5e-4c43-a753-19f9d99ce380</ID>
-    <Server>.</Server>
+    <ID>00ed89f8-489a-4a02-b81b-be034d2d8fb7</ID>
+    <Persist>true</Persist>
+    <Server>W203-095</Server>
     <Database>Chinook</Database>
   </Connection>
 </Query>
@@ -93,7 +94,7 @@ void Main()
 		songs = (from y  in x.Tracks
 				select new TracksAndLength
 				{
-					songtitle = y.Name,
+					Songtitle = y.Name,
 					length = y.Milliseconds/60000 + ":" + 
 								(y.Milliseconds%60000)/1000
 				}).ToList()
