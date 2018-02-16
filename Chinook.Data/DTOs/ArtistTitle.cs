@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chinook.Data.POCOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,6 @@ namespace Chinook.Data.DTOs
     {
         public string title { get; set; }
         public string artist { get; set; }
-        public List<TracksAndLength> songs { get; set; }
+        public IEnumerable<TracksAndLength> songsTrack { get; set; }
     }
 }
