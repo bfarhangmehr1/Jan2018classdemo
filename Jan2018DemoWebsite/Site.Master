@@ -49,7 +49,7 @@
                     <a class="navbar-brand" runat="server" href="~/">Chinook</a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
+                   <%-- <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/SamplePages/ODSCRUD.aspx">CRUD</a></li>
                         <li><a runat="server" href="~/SamplePages/ODSQuery.aspx">ODS Query</a></li>
@@ -59,7 +59,7 @@
                          <li><a runat="server" href="~/SamplePages/AlbumTittleAndArtist.aspx"> Repeater Gridview and List Album</a></li>
                          <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
-                    </ul>
+                    </ul>--%>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
@@ -76,6 +76,33 @@
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>
+                    <asp:Menu ID="navMenu" runat="server"
+                         BackColor="#222222" BorderColor="Red"
+                         StaticMenuItemStyle-ForeColor="#999999"
+                         StaticMenuItemStyle-Font-Size="Larger"
+                         StaticMenuItemStyle-VerticalPadding="14px"
+                         StaticMenuItemStyle-HorizontalPadding="10px"
+                         RenderingMode="List" Orientation="Horizontal"
+                         DynamicMenuItemStyle-ForeColor="#999999"
+                         DynamicMenuItemStyle-Font-Size="Larger"
+                         DynamicMenuStyle-BackColor="Black">
+                        <Items>
+                            <asp:MenuItem Text="Home" NavigateUrl="~/"></asp:MenuItem>
+                            <asp:MenuItem Text="CRUD">
+                                <asp:MenuItem Text="ODS CRUD" NavigateUrl="~/SamplePages/ODSCRUD.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="ODS Query" NavigateUrl="~/SamplePages/ODSQuery.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="ODS ListView" NavigateUrl="~/SamplePages/AlbumDetails.aspx"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Linq">
+                                <asp:MenuItem Text="RepeaterRepeater" NavigateUrl="~/SamplePages/ODSRepeater.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="RepeaterGVLV" NavigateUrl="~/SamplePages/EmployeeClientSupport.aspx"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="About" NavigateUrl="~/About.aspx"></asp:MenuItem>
+                             <asp:MenuItem Text="RepeaterGVLV" NavigateUrl="~/SamplePages/ManagePlaylist.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Contact" NavigateUrl="~/Contact.aspx"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+
                 </div>
             </div>
         </div>
