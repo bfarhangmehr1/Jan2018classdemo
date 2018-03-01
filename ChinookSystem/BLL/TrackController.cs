@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Chinook.Data.Entities;
 using ChinookSystem.DAL;
 using System.ComponentModel;
+using Chinook.Data.POCOs;
 #endregion
 
 namespace ChinookSystem.BLL
@@ -16,33 +17,18 @@ namespace ChinookSystem.BLL
     public class TrackController
     {
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public List<Track> Tracks_List()
+        public List<TrackList> List_TracksForPlaylistSelection(string tracksby, int argid)
         {
-            //create and transacoion ijnstance of your context class
             using (var context = new ChinookContext())
             {
-                // call to linq method not only extension 
-                return context.Tracks.OrderBy(x => x.Name).ToList();
+                List<TrackList> results = null;
+
+                //code to go here
+
+                return results;
             }
-        }
-        public Track Tracks_Get(int trackid)
-        {
-            //create and transacoion ijnstance of your context class
-            using (var context = new ChinookContext())
-            {
-                // call to linq method not only extension 
-                return context.Tracks.Find(trackid);
-            }
-        }
-        [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public List<Track> Tracks_GetByAlbumID( int albumid)
-        {
-            //create and transaction instance of your context class
-            using (var context = new ChinookContext())
-            {
-                // call to linq method not only extension 
-                return context.Tracks.Where( x => x.AlbumId==albumid).Select( x => x).ToList();
-            }
-        }
-    }
+        }//eom
+
+
+    }//eoc
 }

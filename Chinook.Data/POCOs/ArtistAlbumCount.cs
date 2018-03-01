@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chinook.Data.POCOs
 {
-public    class ArtistAlbumCounts
+    public class ArtistAlbumCounts
     {
         public int ArtistId { get; set; }
         public int AlbumCount { get; set; }

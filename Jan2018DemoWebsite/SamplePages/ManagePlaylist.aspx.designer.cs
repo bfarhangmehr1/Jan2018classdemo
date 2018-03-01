@@ -13,6 +13,15 @@ namespace Jan2018DemoWebsite.SamplePages {
     public partial class ManagePlaylist {
         
         /// <summary>
+        /// MessageUserControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DMIT2018Common.UserControls.MessageUserControl MessageUserControl;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -229,6 +238,15 @@ namespace Jan2018DemoWebsite.SamplePages {
         protected global::System.Web.UI.WebControls.ObjectDataSource ArtistDDLODS;
         
         /// <summary>
+        /// AlbumDDLODS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource AlbumDDLODS;
+        
+        /// <summary>
         /// MediaTypeDDLODS control.
         /// </summary>
         /// <remarks>
@@ -245,15 +263,6 @@ namespace Jan2018DemoWebsite.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource GenreDDLODS;
-        
-        /// <summary>
-        /// AlbumDDLODS control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource AlbumDDLODS;
         
         /// <summary>
         /// TrackSelectionListODS control.

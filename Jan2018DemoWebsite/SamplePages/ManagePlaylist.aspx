@@ -1,62 +1,72 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManagePlaylist.aspx.cs" Inherits="Jan2018DemoWebsite.SamplePages.ManagePlaylist" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+<%@ Register Src="~/UserControls/MessageUserControl.ascx"
+     TagPrefix="uc1" TagName="MessageUserControl" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <div>
     <h1>Manage Playlists (UX TRX Sample)</h1>
 </div>
-   
-<div class="row">
+   <div class="roe">
+       <div class="col-sm-12">
+           <uc1:MessageUserControl runat="server" id="MessageUserControl" />
+       </div>
+   </div>
+    <div class="row">
     <div class="col-sm-2">
-        <asp:Label ID="Label1" runat="server" Text="Artist"></asp:Label><br />
-        <asp:DropDownList ID="ArtistDDL" runat="server" 
-            DataSourceID="ArtistDDLODS" 
-            DataTextField="DisplayText" 
-            DataValueField="IDValueField"
-             Width="150px">
+        <asp:Label ID="Label1" runat="server" Text="Artist" ></asp:Label><br />
+        <asp:DropDownList ID="ArtistDDL" runat="server"
+            Width="150px"
+             DataSourceID="ArtistDDLODS"
+             DataTextField="DisplayText" 
+            DataValueField="IDValueField">
         </asp:DropDownList><br />
-        <asp:Button ID="ArtistFetch" runat="server" Text="Fetch" OnClick="ArtistFetch_Click" />
+        <asp:Button ID="ArtistFetch" runat="server" Text="Fetch" OnClick="ArtistFetch_Click"
+              />
         <br /><br />
          <asp:Label ID="Label2" runat="server" Text="Media"></asp:Label><br />
-        <asp:DropDownList ID="MediaTypeDDL" runat="server" 
-            DataSourceID="MediaTypeDDLODS" 
-            DataTextField="DisplayText" 
-            DataValueField="IDValueField"
-            Width="150px">
+        <asp:DropDownList ID="MediaTypeDDL" runat="server"
+            Width="150px" DataSourceID="MediaTypeDDLODS"
+             DataTextField="DisplayText" 
+            DataValueField="IDValueField">
         </asp:DropDownList><br />
-        <asp:Button ID="MediaTypeFetch" runat="server" Text="Fetch" OnClick="MediaTypeFetch_Click" />
+        <asp:Button ID="MediaTypeFetch" runat="server" 
+            Text="Fetch" OnClick="MediaTypeFetch_Click"  />
         <br /><br />
          <asp:Label ID="Label3" runat="server" Text="Genre"></asp:Label><br />
-        <asp:DropDownList ID="GenreDDL" runat="server" 
-            DataSourceID="GenreDDLODS" 
-            DataTextField="DisplayText" 
-            DataValueField="IDValueField"
-            Width="150px">
+        <asp:DropDownList ID="GenreDDL" runat="server"
+            Width="150px"
+             DataSourceID="GenreDDLODS"
+             DataTextField="DisplayText" 
+            DataValueField="IDValueField">
         </asp:DropDownList><br />
-        <asp:Button ID="GenreFetch" runat="server" Text="Fetch" OnClick="GenreFetch_Click" />
+        <asp:Button ID="GenreFetch" runat="server" Text="Fetch" OnClick="GenreFetch_Click" 
+            />
         <br /><br />
          <asp:Label ID="Label4" runat="server" Text="Album"></asp:Label><br />
-        <asp:DropDownList ID="AlbumDDL" runat="server" 
-            DataSourceID="AlbumDDLODS" 
-            DataTextField="DisplayText" 
-            DataValueField="IDValueField"
-            Width="150px">
+        <asp:DropDownList ID="AlbumDDL" runat="server"
+            Width="150px" DataSourceID="AlbumDDLODS"
+             DataTextField="DisplayText"
+             DataValueField="IDValueField">
         </asp:DropDownList><br />
-        <asp:Button ID="AlbumFetch" runat="server" Text="Fetch" OnClick="AlbumFetch_Click" />
+        <asp:Button ID="AlbumFetch" runat="server" Text="Fetch" OnClick="AlbumFetch_Click"
+             />
         <br /><br />
     </div>
     <div class="col-sm-10">
         <asp:Label ID="Label5" runat="server" Text="Tracks"></asp:Label>&nbsp;&nbsp;
         <asp:Label ID="TracksBy" runat="server" ></asp:Label>&nbsp;&nbsp;
         <asp:Label ID="SearchArgID" runat="server" ></asp:Label><br />
-        <asp:ListView ID="TracksSelectionList" runat="server" 
+        <asp:ListView ID="TracksSelectionList" runat="server"
             DataSourceID="TrackSelectionListODS"
-             OnItemCommand="TracksSelectionList_ItemCommand">
+            OnItemCommand="TracksSelectionList_ItemCommand"
+             >
             <AlternatingItemTemplate>
                 <tr style="background-color: #FFFFFF; color: #284775;">
                     <td>
                         <asp:LinkButton ID="AddtoPlaylist" runat="server"
                              CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'>
-                            <span aria-hidden="true" class="glyphicon glyphicon-plus"></span>
+                            <span aria-hidden="true" class="glyphicon glyphicon-plus">&nbsp;</span>
                         </asp:LinkButton>
                         </td>
                     <td>
@@ -88,11 +98,12 @@
             </EmptyDataTemplate>
              <ItemTemplate>
                 <tr style="background-color: #E0FFFF; color: #333333;">
-                    <td><asp:LinkButton ID="AddtoPlaylist" runat="server"
+                    <td>
+                       <asp:LinkButton ID="AddtoPlaylist" runat="server"
                              CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'>
-                            <span aria-hidden="true" class="glyphicon glyphicon-plus"></span>
+                            <span aria-hidden="true" class="glyphicon glyphicon-plus">&nbsp;</span>
                         </asp:LinkButton>
-                        </td>
+                    </td>
                     <td>
                         
                         <asp:Label Text='<%# Eval("Name") %>' runat="server" ID="NameLabel" /></td>
@@ -147,15 +158,16 @@
             </LayoutTemplate>
 
         </asp:ListView>
+
         <br /><br />
         <asp:Label ID="Label6" runat="server" Text="Playlist Name:"></asp:Label>
         <asp:TextBox ID="PlaylistName" runat="server"></asp:TextBox>
-        <asp:Button ID="PlayListFetch" runat="server" Text="Fetch" 
-            OnClick="PlayListFetch_Click" />
+        <asp:Button ID="PlayListFetch" runat="server" Text="Fetch" OnClick="PlayListFetch_Click" 
+            />
 
         <%--enter 3 linkbuttons for move up, move down and delete--%>
         <asp:LinkButton ID="MoveUp" runat="server"
-                CssClass="btn" OnClick="MoveUp_Click" >
+                CssClass="btn" OnClick="MoveUp_Click"  >
             <span aria-hidden="true" class="glyphicon glyphicon-chevron-up"></span>
         </asp:LinkButton>&nbsp;&nbsp;
         <asp:LinkButton ID="MoveDown" runat="server"
@@ -163,7 +175,7 @@
             <span aria-hidden="true" class="glyphicon glyphicon-chevron-down"></span>
         </asp:LinkButton>&nbsp;&nbsp;
         <asp:LinkButton ID="DeleteTrack" runat="server"
-                CssClass="btn" OnClick="DeleteTrack_Click" >
+                CssClass="btn" OnClick="DeleteTrack_Click"  >
             <span aria-hidden="true" class="glyphicon glyphicon-remove"
                  style="color:red"></span>
         </asp:LinkButton>
@@ -172,32 +184,37 @@
              Caption="PlayList" GridLines="Horizontal" BorderStyle="None">
             <Columns>
                 <asp:TemplateField >
-                    <ItemTemplate>
+                    <ItemTemplate >
                         <asp:CheckBox ID="Selected" runat="server" />
                         <asp:Label runat="server" ID="TrackId"
                             Text='<%# Eval("TrackID") %>' Visible="false"></asp:Label>
+                        &nbsp;&nbsp;
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Track">
                     <ItemTemplate>
-                        <asp:Label runat="server" ID="TrackNumber"
+                        <asp:Label runat="server" ID="TrackNumber" Width="40px"
                             Text='<%# Eval("TrackNumber") %>'></asp:Label>
+                          &nbsp;&nbsp;
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Name">
                     <ItemTemplate>
                         <asp:Label runat="server" ID="TrachName"
                             Text='<%# Eval("TrackName") %>'></asp:Label>
+                          &nbsp;&nbsp;
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Time (m:s)">
                     <ItemTemplate>
-                        <asp:Label runat="server" ID="Milliseconds"
+                        <asp:Label runat="server" ID="Milliseconds" Width="80px"
                             Text='<%# string.Format("{0:0.0}", (int)Eval("Milliseconds")/60000m)  %>'></asp:Label>
+                          &nbsp;&nbsp;
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="($)">
                     <ItemTemplate>
+                          
                         <asp:Label runat="server" ID="UnitPrice"
                             Text='<%# Eval("UnitPrice") %>'></asp:Label>
                     </ItemTemplate>
@@ -210,39 +227,42 @@
     </div>
 
 </div>
-    <asp:ObjectDataSource ID="ArtistDDLODS" runat="server" 
-        OldValuesParameterFormatString="original_{0}" 
-        SelectMethod="List_ArtistNames" 
-        TypeName="ChinookSystem.BLL.ArtistController"
-         OnSelected="CheckForException">
+    <asp:ObjectDataSource ID="ArtistDDLODS" runat="server"
+         OldValuesParameterFormatString="original_{0}" 
+        SelectMethod="List_ArtistNames"
+         TypeName="ChinookSystem.BLL.ArtistController">
+
     </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="AlbumDDLODS" runat="server"
+         OldValuesParameterFormatString="original_{0}" 
+        SelectMethod="List_AlbumTitles"
+         TypeName="ChinookSystem.BLL.AlbumController">
+
+    </asp:ObjectDataSource>
+
     <asp:ObjectDataSource ID="MediaTypeDDLODS" runat="server" 
         OldValuesParameterFormatString="original_{0}" 
         SelectMethod="List_MediaTypeNames" 
-        TypeName="ChinookSystem.BLL.MediaTypeController"
-         OnSelected="CheckForException">
+        TypeName="ChinookSystem.BLL.MediaTypeController"       
+         >
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="GenreDDLODS" runat="server" 
         OldValuesParameterFormatString="original_{0}" 
         SelectMethod="List_GenreNames" 
-        TypeName="ChinookSystem.BLL.GenreController"
-         OnSelected="CheckForException">
+        TypeName="ChinookSystem.BLL.GenreController"        
+         >
     </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="AlbumDDLODS" runat="server" 
-        OldValuesParameterFormatString="original_{0}" 
-        SelectMethod="List_AlbumTitles" 
-        TypeName="ChinookSystem.BLL.AlbumController"
-         OnSelected="CheckForException">
-    </asp:ObjectDataSource>
+   
     <asp:ObjectDataSource ID="TrackSelectionListODS" runat="server" 
         OldValuesParameterFormatString="original_{0}" 
         SelectMethod="List_TracksForPlaylistSelection" 
         TypeName="ChinookSystem.BLL.TrackController"
-         OnSelected="CheckForException">
+         
+         >
         <SelectParameters>
             <asp:ControlParameter ControlID="TracksBy" PropertyName="Text" Name="tracksby" Type="String"></asp:ControlParameter>
             <asp:ControlParameter ControlID="SearchArgID" PropertyName="Text" Name="argid" Type="Int32"></asp:ControlParameter>
         </SelectParameters>
     </asp:ObjectDataSource>
-</asp:Content>
 
+</asp:Content>
