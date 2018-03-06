@@ -56,7 +56,7 @@
     <div class="col-sm-10">
         <asp:Label ID="Label5" runat="server" Text="Tracks"></asp:Label>&nbsp;&nbsp;
         <asp:Label ID="TracksBy" runat="server" ></asp:Label>&nbsp;&nbsp;
-        <asp:Label ID="SearchArgID" runat="server" ></asp:Label><br />
+        <asp:Label ID="SearchArgID" runat="server"></asp:Label><br />
         <asp:ListView ID="TracksSelectionList" runat="server"
             DataSourceID="TrackSelectionListODS"
             OnItemCommand="TracksSelectionList_ItemCommand"
@@ -256,13 +256,11 @@
     <asp:ObjectDataSource ID="TrackSelectionListODS" runat="server" 
         OldValuesParameterFormatString="original_{0}" 
         SelectMethod="List_TracksForPlaylistSelection" 
-        TypeName="ChinookSystem.BLL.TrackController"
-         
+        TypeName="ChinookSystem.BLL.TrackController"         
          >
         <SelectParameters>
             <asp:ControlParameter ControlID="TracksBy" PropertyName="Text" Name="tracksby" Type="String"></asp:ControlParameter>
             <asp:ControlParameter ControlID="SearchArgID" PropertyName="Text" Name="argid" Type="Int32"></asp:ControlParameter>
         </SelectParameters>
-    </asp:ObjectDataSource>
-
+    </asp:ObjectDataSource>   
 </asp:Content>
