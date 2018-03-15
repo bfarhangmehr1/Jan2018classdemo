@@ -171,17 +171,73 @@ namespace ChinookSystem.BLL
                     }
                     else
                     {
+                        //creat an instance pointer to be used to point to the other track involved in the move 
+                        PlaylistTrack othertrack = null;
                         //direction
                         if (direction.Equals("up"))
                         {
                             //up
+                            //recheck that the track is not the first trakc
+                            // if so, throw an error; otehrwise move the track
+                            if (moveTrack.TrackNumber == 1)
+                            {
+                                throw new Exception("Playlist trakc already at top");
+                            }
+                            else
+                            {
+                                othertrack = (from x in exists.PlaylistTracks
+                                              where x.TrackNumber == moveTrack.TrackNumber - 1
+                                              select x).FirstOrDefault();
+                                if (othertrack == null)
+                                {
+                                    throw new Exception("switching track is missing");
+                                }
+                                else
+                                {
+                                    moveTrack.TrackNumber -= 1;
+                                    othertrack.TrackNumber += 1;
+                                }
 
+                            }
                         }
                         else
                         {
                             //down
+                            if (direction.Equals("down"))
+                            {
+                                //up
+                                //recheck that the track is not the last track
+                                // if so, throw an error; otehrwise move the track
+                                if (moveTrack.TrackNumber == exists.PlaylistTracks.Count())
+                                {
+                                    throw new Exception("Playlist trakc already at botttom");
+                                }
+                                else
+                                {
+                                    othertrack = (from x in exists.PlaylistTracks
+                                                  where x.TrackNumber == moveTrack.TrackNumber + 1
+                                                  select x).FirstOrDefault();
+                                    if (othertrack == null)
+                                    {
+                                        throw new Exception("switching track is missing");
+                                    }
+                                    else
+                                    {
+                                        moveTrack.TrackNumber += 1;
+                                        othertrack.TrackNumber -= 1;
+                                    }
+                                }
+                                //saving the changes to the data we are saving 2 different entities
+                                // indicate the property to save a particular entity instance
+                                context.Entry(moveTrack).Property(y => y.TrackNumber).IsModified = true;
+
+                                context.Entry(othertrack).Property(y => y.TrackNumber).IsModified = true;
+
+                                //commit your changes
+                                context.SaveChanges();
+                            }
                         }
-                    }
+                   }
                 }
             }
         }//eom
@@ -189,12 +245,54 @@ namespace ChinookSystem.BLL
 
         public void DeleteTracks(string username, string playlistname, List<int> trackstodelete)
         {
-            using (var context = new ChinookContext())
-            {
-                //code to go here
+           //code to go here
 
-
-            }
+                using (var context = new ChinookContext())
+                {
+                    //code to go here 
+                    var exists = (from x in context.Playlists
+                                  where x.Name.Equals(playlistname)
+                                     && x.UserName.Equals(username)
+                                  select x).FirstOrDefault();
+                    if (exists == null)
+                    {
+                        throw new Exception("Play list has been removed from the files.");
+                    }
+                    else
+                    {
+                    //get a list of tracks that will be kept in order of TRACKNUMBER
+                    // you do not konw if the physical order is the same as the logical TrackNumber order
+                    // .Any() allows you to search for an item in list using a condition , returns true if found
+                    // we are looking an item n ListA is inside ListB
+                    //in this example we do not want to find it thus !
+                    var trackskept = exists.PlaylistTracks.
+                       Where(tr => !trackstodelete.Any(tod => tod == tr.TrackId)).
+                       OrderBy(tr => tr.TrackNumber) 
+                       .Select(tr => tr);
+                    
+                    // delete tracks
+                    PlaylistTrack item = null;
+                    foreach(var delettrackid in trackstodelete)
+                      {
+                        item = exists.PlaylistTracks.
+                            Where(tr => tr.TrackId == delettrackid).FirstOrDefault();
+                        if(item!=null)
+                        {
+                            exists.PlaylistTracks.Remove(item);
+                        }
+                      }
+                    // remeber remaining tracks(kept one)
+                    int number = 1;
+                    foreach(var tkept in trackskept)
+                    {
+                        tkept.TrackNumber = number;
+                        number++;
+                        context.Entry(tkept).Property(y => y.TrackNumber).IsModified = true;
+                    }
+                    //commit work
+                    context.SaveChanges();
+                    }
+                }
         }//eom
     }
 }

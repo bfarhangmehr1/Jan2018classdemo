@@ -209,6 +209,7 @@ namespace Jan2018DemoWebsite.SamplePages
         protected void DeleteTrack_Click(object sender, EventArgs e)
         {
             //code to go here
+
         }
 
         protected void TracksSelectionList_ItemCommand(object sender, ListViewCommandEventArgs e)
