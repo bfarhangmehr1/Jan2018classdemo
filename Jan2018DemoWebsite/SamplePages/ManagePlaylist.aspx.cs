@@ -90,9 +90,7 @@ namespace Jan2018DemoWebsite.SamplePages
                     PlayList.DataBind();
                 });
             }
-
         }
-
         protected void MoveDown_Click(object sender, EventArgs e)
         {
             //code to go here
