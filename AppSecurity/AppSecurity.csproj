@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{09DBDD39-02C3-4B99-96BC-7315DFB8329C}</ProjectGuid>
+    <ProjectGuid>{A6A70E05-9C9E-4DC3-BA02-CCBA45482A08}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AppSecurity</RootNamespace>
@@ -89,7 +89,7 @@
     <Compile Include="BLL\ApplicationUserManager.cs" />
     <Compile Include="BLL\EmailService.cs" />
     <Compile Include="BLL\SmsService.cs" />
-    <Compile Include="DAL\ApplicationDbComtext.cs" />
+    <Compile Include="DAL\ApplicationDbContext.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
     <Compile Include="Entities\SecurityRoles.cs" />
     <Compile Include="POCOs\EmployeeListPOCO.cs" />
@@ -102,11 +102,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Chinook.Data\Chinook.Data.csproj">
-      <Project>{c8890684-3713-47c5-9c8a-f3969b8d5df0}</Project>
+      <Project>{b6e85d59-fba8-4bf4-b384-f893ba7e2f5b}</Project>
       <Name>Chinook.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\ChinookSystem\ChinookSystem.csproj">
-      <Project>{58f08a8b-3019-4051-864d-3ff3423d7776}</Project>
+      <Project>{59ee60e8-8161-44ec-a1f5-e6eb308071c1}</Project>
       <Name>ChinookSystem</Name>
     </ProjectReference>
   </ItemGroup>

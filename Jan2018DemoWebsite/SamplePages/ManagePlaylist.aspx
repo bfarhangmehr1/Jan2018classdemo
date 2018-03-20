@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManagePlaylist.aspx.cs" Inherits="Jan2018DemoWebsite.SamplePages.ManagePlaylist" %>
 
-<%@ Register Src="~/UserControls/MessageUserControl.ascx"
-     TagPrefix="uc1" TagName="MessageUserControl" %>
+<%@ Register Src="~/UserControls/MessageUserControl.ascx" 
+    TagPrefix="uc1" TagName="MessageUserControl" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <div>
     <h1>Manage Playlists (UX TRX Sample)</h1>
 </div>
-   <div class="roe">
+   <div class="row">
        <div class="col-sm-12">
            <uc1:MessageUserControl runat="server" id="MessageUserControl" />
        </div>
@@ -16,9 +16,8 @@
     <div class="col-sm-2">
         <asp:Label ID="Label1" runat="server" Text="Artist" ></asp:Label><br />
         <asp:DropDownList ID="ArtistDDL" runat="server"
-            Width="150px"
-             DataSourceID="ArtistDDLODS"
-             DataTextField="DisplayText" 
+            Width="150px" DataSourceID="ArtistDDLODS" 
+            DataTextField="DisplayText" 
             DataValueField="IDValueField">
         </asp:DropDownList><br />
         <asp:Button ID="ArtistFetch" runat="server" Text="Fetch" OnClick="ArtistFetch_Click"
@@ -26,8 +25,8 @@
         <br /><br />
          <asp:Label ID="Label2" runat="server" Text="Media"></asp:Label><br />
         <asp:DropDownList ID="MediaTypeDDL" runat="server"
-            Width="150px" DataSourceID="MediaTypeDDLODS"
-             DataTextField="DisplayText" 
+            Width="150px" DataSourceID="MediaTypeDDLODS" 
+            DataTextField="DisplayText" 
             DataValueField="IDValueField">
         </asp:DropDownList><br />
         <asp:Button ID="MediaTypeFetch" runat="server" 
@@ -35,9 +34,8 @@
         <br /><br />
          <asp:Label ID="Label3" runat="server" Text="Genre"></asp:Label><br />
         <asp:DropDownList ID="GenreDDL" runat="server"
-            Width="150px"
-             DataSourceID="GenreDDLODS"
-             DataTextField="DisplayText" 
+            Width="150px" DataSourceID="GenreDDLODS" 
+            DataTextField="DisplayText" 
             DataValueField="IDValueField">
         </asp:DropDownList><br />
         <asp:Button ID="GenreFetch" runat="server" Text="Fetch" OnClick="GenreFetch_Click" 
@@ -45,9 +43,9 @@
         <br /><br />
          <asp:Label ID="Label4" runat="server" Text="Album"></asp:Label><br />
         <asp:DropDownList ID="AlbumDDL" runat="server"
-            Width="150px" DataSourceID="AlbumDDLODS"
-             DataTextField="DisplayText"
-             DataValueField="IDValueField">
+            Width="150px" DataSourceID="AlbumDDLODS" 
+            DataTextField="DisplayText" 
+            DataValueField="IDValueField">
         </asp:DropDownList><br />
         <asp:Button ID="AlbumFetch" runat="server" Text="Fetch" OnClick="AlbumFetch_Click"
              />
@@ -55,8 +53,8 @@
     </div>
     <div class="col-sm-10">
         <asp:Label ID="Label5" runat="server" Text="Tracks"></asp:Label>&nbsp;&nbsp;
-        <asp:Label ID="TracksBy" runat="server" ></asp:Label>&nbsp;&nbsp;
-        <asp:Label ID="SearchArgID" runat="server"></asp:Label><br />
+        <asp:Label ID="TracksBy" runat="server"  ></asp:Label>&nbsp;&nbsp;
+        <asp:Label ID="SearchArgID" runat="server" ></asp:Label><br />
         <asp:ListView ID="TracksSelectionList" runat="server"
             DataSourceID="TrackSelectionListODS"
             OnItemCommand="TracksSelectionList_ItemCommand"
@@ -229,38 +227,41 @@
 </div>
     <asp:ObjectDataSource ID="ArtistDDLODS" runat="server"
          OldValuesParameterFormatString="original_{0}" 
-        SelectMethod="List_ArtistNames"
-         TypeName="ChinookSystem.BLL.ArtistController">
+        SelectMethod="List_ArtistNames" 
+        TypeName="ChinookSystem.BLL.ArtistController">
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="AlbumDDLODS" runat="server" 
+        OldValuesParameterFormatString="original_{0}" 
+        SelectMethod="List_AlbumTitles" 
+        TypeName="ChinookSystem.BLL.AlbumController">
 
     </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="AlbumDDLODS" runat="server"
-         OldValuesParameterFormatString="original_{0}" 
-        SelectMethod="List_AlbumTitles"
-         TypeName="ChinookSystem.BLL.AlbumController">
-
-    </asp:ObjectDataSource>
-
     <asp:ObjectDataSource ID="MediaTypeDDLODS" runat="server" 
         OldValuesParameterFormatString="original_{0}" 
         SelectMethod="List_MediaTypeNames" 
-        TypeName="ChinookSystem.BLL.MediaTypeController"       
+        TypeName="ChinookSystem.BLL.MediaTypeController"
+        
          >
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="GenreDDLODS" runat="server" 
         OldValuesParameterFormatString="original_{0}" 
         SelectMethod="List_GenreNames" 
-        TypeName="ChinookSystem.BLL.GenreController"        
+        TypeName="ChinookSystem.BLL.GenreController"
+        
          >
+       
     </asp:ObjectDataSource>
    
     <asp:ObjectDataSource ID="TrackSelectionListODS" runat="server" 
         OldValuesParameterFormatString="original_{0}" 
         SelectMethod="List_TracksForPlaylistSelection" 
-        TypeName="ChinookSystem.BLL.TrackController"         
+        TypeName="ChinookSystem.BLL.TrackController"
+         
          >
         <SelectParameters>
             <asp:ControlParameter ControlID="TracksBy" PropertyName="Text" Name="tracksby" Type="String"></asp:ControlParameter>
             <asp:ControlParameter ControlID="SearchArgID" PropertyName="Text" Name="argid" Type="Int32"></asp:ControlParameter>
         </SelectParameters>
-    </asp:ObjectDataSource>   
+    </asp:ObjectDataSource>
+
 </asp:Content>

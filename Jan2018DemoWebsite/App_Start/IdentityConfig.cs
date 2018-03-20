@@ -7,21 +7,20 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Jan2018DemoWebsite.Models;
+
+#region Additional Namespaces
 using AppSecurity.Entities;
+using AppSecurity.DAL;
 using AppSecurity.BLL;
+#endregion
 
 namespace Jan2018DemoWebsite
 {
-   
-
-   
-    // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
-
-
     public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
     {
         public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager) :
-            base(userManager, authenticationManager) { }
+            base(userManager, authenticationManager)
+        { }
 
         public override Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUser user)
         {
@@ -33,4 +32,10 @@ namespace Jan2018DemoWebsite
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
         }
     }
+
+
+
+  
+
+   
 }

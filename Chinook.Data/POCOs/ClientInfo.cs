@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Chinook.Data.POCOs
 {
-   public class ClientInfo
+    public class ClientInfo
     {
         public string Client { get; set; }
         public string Phone { get; set; }
-
     }
 }

@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-#region Additional namespace
+#region Additional Namespaces
 using Chinook.Data.Entities;
+using Chinook.Data.DTOs;
+using Chinook.Data.POCOs;
 using ChinookSystem.DAL;
 using System.ComponentModel;
-using Chinook.Data.POCOs;
 #endregion
 
 namespace ChinookSystem.BLL
@@ -17,11 +18,40 @@ namespace ChinookSystem.BLL
     public class TrackController
     {
         [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<Track> Tracks_List()
+        {
+            //create an transaction instance of your Context class
+            using (var context = new ChinookContext())
+            {
+                return context.Tracks.OrderBy(x => x.Name).ToList();
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public Track Tracks_Get(int trackid)
+        {
+            //create an transaction instance of your Context class
+            using (var context = new ChinookContext())
+            {
+                return context.Tracks.Find(trackid);
+            }
+        }
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<Track> Tracks_GetByAlbumID(int albumid)
+        {
+            //create an transaction instance of your Context class
+            using (var context = new ChinookContext())
+            {
+                return context.Tracks.Where(x => x.AlbumId == albumid).Select(x => x).ToList();
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<TrackList> List_TracksForPlaylistSelection(string tracksby, int argid)
         {
             using (var context = new ChinookContext())
             {
-
+                //code to go here
                 var results = from x in context.Tracks
                               where tracksby.Equals("Artist") ? x.Album.ArtistId == argid :
                                     tracksby.Equals("MediaType") ? x.MediaTypeId == argid :
@@ -40,11 +70,8 @@ namespace ChinookSystem.BLL
                                   Bytes = x.Bytes,
                                   UnitPrice = x.UnitPrice
                               };
-
                 return results.ToList();
             }
         }//eom
-
-
-    }//eoc
+    }
 }

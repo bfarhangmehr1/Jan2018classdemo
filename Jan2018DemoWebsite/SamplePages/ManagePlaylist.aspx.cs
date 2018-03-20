@@ -19,7 +19,7 @@ namespace Jan2018DemoWebsite.SamplePages
             TracksSelectionList.DataSource = null;
         }
 
-
+       
 
         protected void ArtistFetch_Click(object sender, EventArgs e)
         {
@@ -29,7 +29,7 @@ namespace Jan2018DemoWebsite.SamplePages
                 TracksBy.Text = "Artist";
                 SearchArgID.Text = ArtistDDL.SelectedValue;
                 TracksSelectionList.DataBind();
-            }, "Tracks by Artist", "Add an track to your playlist by clicking on the + (plus sign).");
+            },"Tracks by Artist","Add an track to your playlist by clicking on the + (plus sign).");
         }
 
         protected void MediaTypeFetch_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace Jan2018DemoWebsite.SamplePages
 
         protected void AlbumFetch_Click(object sender, EventArgs e)
         {
-
+            
             //code to go here
             MessageUserControl.TryRun(() =>
             {
@@ -90,7 +90,9 @@ namespace Jan2018DemoWebsite.SamplePages
                     PlayList.DataBind();
                 });
             }
+           
         }
+
         protected void MoveDown_Click(object sender, EventArgs e)
         {
             //code to go here
@@ -221,7 +223,7 @@ namespace Jan2018DemoWebsite.SamplePages
                 List<UserPlaylistTrack> info = sysmgr.List_TracksForPlaylist(PlaylistName.Text, "HansenB");
                 PlayList.DataSource = info;
                 PlayList.DataBind();
-            }, "Moved", "Track has been moved " + direction);
+            },"Moved", "Track has been moved " + direction);
         }
         protected void DeleteTrack_Click(object sender, EventArgs e)
         {
@@ -242,7 +244,7 @@ namespace Jan2018DemoWebsite.SamplePages
                     List<int> trackstodelete = new List<int>();
                     int rowselected = 0;
                     CheckBox playlistselection = null;
-                    for (int rowindex = 0; rowindex < PlayList.Rows.Count; rowindex++)
+                    for(int rowindex = 0; rowindex < PlayList.Rows.Count; rowindex++)
                     {
                         playlistselection = PlayList.Rows[rowindex].FindControl("Selected") as CheckBox;
                         if (playlistselection.Checked)
@@ -266,7 +268,7 @@ namespace Jan2018DemoWebsite.SamplePages
                             List<UserPlaylistTrack> info = sysmgr.List_TracksForPlaylist(PlaylistName.Text, "HansenB");
                             PlayList.DataSource = info;
                             PlayList.DataBind();
-                        }, "Removed", "Tracks have been removed");
+                        },"Removed","Tracks have been removed");
                     }
                 }
             }
@@ -308,7 +310,7 @@ namespace Jan2018DemoWebsite.SamplePages
                     List<UserPlaylistTrack> info = sysmgr.List_TracksForPlaylist(playlistname, username);
                     PlayList.DataSource = info;
                     PlayList.DataBind();
-                }, "Track Added", "The track has been addded, check your list below");
+                },"Track Added","The track has been addded, check your list below");
             }
         }
     }

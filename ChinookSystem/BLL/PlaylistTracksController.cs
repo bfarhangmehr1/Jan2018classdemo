@@ -48,8 +48,8 @@ namespace ChinookSystem.BLL
                                         UnitPrice = x.Track.UnitPrice
                                     };
                     return theTracks.ToList();
-                }
-
+                }               
+                
             }
         }//eom
         public void Add_TrackToPLaylist(string playlistname, string username, int trackid)
@@ -66,11 +66,11 @@ namespace ChinookSystem.BLL
 
                 //determine if the playlist already exists on the database
                 Playlist exists = context.Playlists
-                    .Where(x => x.Name.Equals(playlistname, StringComparison.OrdinalIgnoreCase)
+                    .Where(x => x.Name.Equals(playlistname,StringComparison.OrdinalIgnoreCase) 
                     && x.UserName.Equals(username, StringComparison.OrdinalIgnoreCase)).Select(x => x).FirstOrDefault();
                 PlaylistTrack newTrack = null;
                 int tracknumber = 0;
-
+                
                 if (exists == null)
                 {
                     //add the parent record (Playlist record)
@@ -144,7 +144,7 @@ namespace ChinookSystem.BLL
                     //    with .SaveChanges
                     context.SaveChanges();
                 }
-
+             
             }
         }//eom
         public void MoveTrack(string username, string playlistname, int trackid, int tracknumber, string direction)
@@ -224,7 +224,7 @@ namespace ChinookSystem.BLL
                                     moveTrack.TrackNumber += 1;
                                     otherTrack.TrackNumber -= 1;
                                 }
-                            }
+                            } 
                         }//eof up/down
 
                         //saving the changes to the data
@@ -279,12 +279,12 @@ namespace ChinookSystem.BLL
                         {
                             exists.PlaylistTracks.Remove(item);
                         }
-
+                       
                     }
 
                     //renumber remaining tracks (tracks that were kept)
                     int number = 1;
-                    foreach (var tkept in trackskept)
+                    foreach(var tkept in trackskept)
                     {
                         tkept.TrackNumber = number;
                         number++;

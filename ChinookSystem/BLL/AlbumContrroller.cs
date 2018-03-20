@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-#region Additional namespace
+
+#region Additional Namespaces
 using Chinook.Data.Entities;
-using ChinookSystem.DAL;
-using System.ComponentModel;
 using Chinook.Data.DTOs;
 using Chinook.Data.POCOs;
+using ChinookSystem.DAL;
+using System.ComponentModel;
 #endregion
 
 namespace ChinookSystem.BLL
@@ -20,53 +21,55 @@ namespace ChinookSystem.BLL
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<Album> Albums_List()
         {
-            //create and transacoion ijnstance of your context class
+            //create an transaction instance of your Context class
             using (var context = new ChinookContext())
             {
-                // call to linq method not only extension 
                 return context.Albums.OrderBy(x => x.Title).ToList();
             }
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
         public Album Albums_Get(int albumid)
         {
-            //create and transacoion instance of your context class
+            //create an transaction instance of your Context class
             using (var context = new ChinookContext())
             {
-                // call to linq method not only extension 
                 return context.Albums.Find(albumid);
             }
         }
+
         [DataObjectMethod(DataObjectMethodType.Insert,false)]
         public void Albums_Add(Album item)
         {
             using (var context = new ChinookContext())
             {
-                //staged to be physically placed on the database
+                //staged to be physical placed on the database
                 context.Albums.Add(item);
-                //physicallly cause the stage itme to be 
-                // placed on the database 
-                //this is a commit of using transaction
+                //physically cause the staged item to be
+                //    placed on the database
+                //this is the commit of the using transaction
                 context.SaveChanges();
             }
         }
+
         [DataObjectMethod(DataObjectMethodType.Update, false)]
         public void Albums_Update(Album item)
         {
             using (var context = new ChinookContext())
             {
                 item.ReleaseLabel = string.IsNullOrEmpty(item.ReleaseLabel) ? null : item.ReleaseLabel;
-                //staged to be physically placed on the database
-                context.Albums.Add(item);
+
                 context.Entry(item).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
             }
         }
+
         [DataObjectMethod(DataObjectMethodType.Delete, false)]
         public void Albums_Delete(Album item)
         {
             Albums_Delete(item.AlbumId);
-          
         }
+
         public void Albums_Delete(int albumid)
         {
             using (var context = new ChinookContext())
@@ -74,12 +77,11 @@ namespace ChinookSystem.BLL
                 var existing = context.Albums.Find(albumid);
                 if (existing == null)
                 {
-                    throw new Exception("Abum does not exists on file.");
+                    throw new Exception("Album does not exists on file.");
                 }
                 context.Albums.Remove(existing);
                 context.SaveChanges();
             }
-
         }
 
         [DataObjectMethod(DataObjectMethodType.Select, false)]
@@ -99,3 +101,4 @@ namespace ChinookSystem.BLL
         }
     }
 }
+

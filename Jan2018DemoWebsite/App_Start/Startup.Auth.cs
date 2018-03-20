@@ -8,9 +8,13 @@ using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Jan2018DemoWebsite.Models;
+
+#region Additional Namespaces
+using AppSecurity.Entities;
 using AppSecurity.DAL;
 using AppSecurity.BLL;
-using AppSecurity.Entities;
+#endregion
+
 
 namespace Jan2018DemoWebsite
 {

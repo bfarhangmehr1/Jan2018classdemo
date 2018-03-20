@@ -1,8 +1,8 @@
-<Query Kind="Expression">
+<Query Kind="Program">
   <Connection>
-    <ID>00ed89f8-489a-4a02-b81b-be034d2d8fb7</ID>
+    <ID>c5be593d-ef5e-4c43-a753-19f9d99ce380</ID>
     <Persist>true</Persist>
-    <Server>W203-095</Server>
+    <Server>.</Server>
     <Database>Chinook</Database>
   </Connection>
 </Query>
@@ -23,54 +23,9 @@ void Main()
 	// x.navigationproperty will point to the current children belonging
 	//   to the x record
 	
-//   var results= Employee_GetClientList();
-//	results.Dump();
-//
-//}
-//
-//public class ClientInfo
-//{
-//    public string Client {get;set;}
-//	public string Phone{get;set;}
-//}
-//
-//public class EmployeeClients
-//{
-//    public string Name {get;set;}
-//	public int ClientCount{get;set;}
-//	public IEnumerable <ClientInfo> ClientList{get;set;}
-//}
-//
-////in the BLL query is the method creat the method and test here
-// public List<EmployeeClients> Employee_GetClientList()
-// { 
-//  var results= from employeeRow in Employees
-//	where employeeRow.Title.Contains("Support")
-//	orderby employeeRow.LastName, employeeRow.FirstName
-//	select new EmployeeClients
-//	{
-//		Name = employeeRow.LastName + ", " + employeeRow.FirstName,
-//		//title = employeeRow.Title,
-//		ClientCount = employeeRow.SupportRepIdCustomers.Count(),
-//		ClientList = (from customerRowOfemployeeRow in employeeRow.SupportRepIdCustomers
-//						orderby customerRowOfemployeeRow.LastName, 
-//									customerRowOfemployeeRow.FirstName
-//						select new ClientInfo
-//								{
-//									Client = customerRowOfemployeeRow.LastName + ", " + 
-//												customerRowOfemployeeRow.FirstName,
-//									Phone = customerRowOfemployeeRow.Phone
-//								}).ToList()
-//								
-//	};
-//    return results.ToList();
-// }
-//
-
-
-
-
-
+	var results = Employee_GetClientList();
+	results.Dump();
+	
 	//Create a list of albums showing its title and artist.
 	//Show albums with 5 or more tracks only.
 	//Show the songs on the album (name and length)
@@ -83,50 +38,24 @@ void Main()
 	//ToList() is useful if you require your data to be in memory
 	//    for some execution
 	
-	
-	var TrackCountlimit= 25;
-    var results= from x in Albums
-	where x.Tracks.Count() >= TrackCountlimit
-	select new ArtistTitle
-	{
-		title = x.Title,
-		artist = x.Artist.Name,
-		songs = (from y  in x.Tracks
-				select new TracksAndLength
-				{
-					Songtitle = y.Name,
-					length = y.Milliseconds/60000 + ":" + 
-								(y.Milliseconds%60000)/1000
-				}).ToList()
-	};
-	
-	results.Dump();
-}
-
-
-	public Class TracksAndLength
-	{
-       public string songtitle {get;set;}
-	   public int length {get;set;}
-	}
-	
-public class ArtistTitle
-{
-	public string title {get;set;}
-	public string artist {get;set;}
-	public List<TracksAndLength> songs{get;set;}
-}
-	
-	
+	//from x in Albums
+	//where x.Tracks.Count() >= 25
+	//select new
+	//{
+	//	title = x.Title,
+	//	artist = x.Artist.Name,
+	//	songs = (from y  in x.Tracks
+	//			select new
+	//			{
+	//				songtitle = y.Name,
+	//				length = y.Milliseconds/60000 + ":" + 
+	//							(y.Milliseconds%60000)/1000
+	//			}).ToList()
+	//}
 	
 	//List the playlists with more than 15 tracks.
 	//show the playlist name, and list of tracks.
 	//for each track show the song name, and Genre
-	
-	
-	
-	
-	
 	
 //	var trackcountlimit = 15;  //could be an input parameter
 //	
@@ -145,12 +74,8 @@ public class ArtistTitle
 //							}).ToList()
 //				};
 //	results.Dump();
-//
-//}
 
-
-
-
+}
 
 // Define other methods and classes here
 
@@ -170,18 +95,69 @@ public class ArtistTitle
 //   single database table
 
 //POCO scope : flat, not an entity
+public class TracksAndGenre
+{
+	public string songtitle {get;set;}
+	public string songgenre {get;set;}
+}
+
+//DTO scope : internal structure
+
+public class ClientPlaylist
+{
+	public string playlist {get;set;}
+	public List<TracksAndGenre> songs{get;set;}
+}
+
+public class ClientInfo
+{
+	public string Client{get;set;}
+	public string Phone{get;set;}
+}
+
+public class EmployeeClients
+{
+	public string Name{get;set;}
+	public int ClientCount{get;set;}
+	public IEnumerable<ClientInfo> ClientList{get;set;}
+}
+
+//in the BLL the quest is in a method
+//create the method and test here
+public List<EmployeeClients> Employee_GetClientList()
+{
+	var results = from employeeRow in Employees
+		where employeeRow.Title.Contains("Support")
+		orderby employeeRow.LastName, employeeRow.FirstName
+		select new EmployeeClients
+		{
+			Name = employeeRow.LastName + ", " + employeeRow.FirstName,
+			//title = employeeRow.Title,
+			ClientCount = employeeRow.SupportRepIdCustomers.Count(),
+			ClientList = from customerRowOfemployeeRow in employeeRow.SupportRepIdCustomers
+							orderby customerRowOfemployeeRow.LastName, 
+										customerRowOfemployeeRow.FirstName
+							select new ClientInfo
+									{
+										Client = customerRowOfemployeeRow.LastName + ", " + 
+													customerRowOfemployeeRow.FirstName,
+										Phone = customerRowOfemployeeRow.Phone
+									}
+		};
+	return results.ToList();
+}
 
 
-//public class TracksAndGenre
-//{
-//	public string songtitle {get;set;}
-//	public string songgenre {get;set;}
-//}
-//
-////DTO scope : internal structure
-//
-//public class ClientPlaylist
-//{
-//	public string playlist {get;set;}
-//	public List<TracksAndGenre> songs{get;set;}
-//}
+
+
+
+
+
+
+
+
+
+
+
+
+

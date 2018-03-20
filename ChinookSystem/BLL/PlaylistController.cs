@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-#region Additional namespace
+
+#region Additional Namespaces
 using Chinook.Data.Entities;
 using ChinookSystem.DAL;
 using System.ComponentModel;
@@ -16,9 +17,7 @@ namespace ChinookSystem.BLL
     [DataObject]
     public class PlaylistController
     {
-        
-       // public object Playlists { get; set; }
-        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        [DataObjectMethod(DataObjectMethodType.Select,false)]
         public List<ClientPlaylist> Playlist_ClientPlaylist(int trackcountlimit)
         {
             using (var context = new ChinookContext())
@@ -28,15 +27,15 @@ namespace ChinookSystem.BLL
                               select new ClientPlaylist
                               {
                                   playlist = x.Name,
-                                  songs = (from y in x.PlaylistTracks
+                                  songs = from y in x.PlaylistTracks
                                            select new TracksAndGenre
                                            {
                                                songtitle = y.Track.Name,
                                                songgenre = y.Track.Genre.Name,
-                                           })
+                                           }
                               };
                 return results.ToList();
             }
-        }  
+        }
     }
 }

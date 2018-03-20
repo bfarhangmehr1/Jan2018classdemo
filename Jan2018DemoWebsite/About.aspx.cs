@@ -12,7 +12,6 @@ namespace Jan2018DemoWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 if (!Request.IsAuthenticated)

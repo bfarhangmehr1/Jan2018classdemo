@@ -13,22 +13,22 @@ namespace Jan2018DemoWebsite.SamplePages {
     public partial class ODSRepeater {
         
         /// <summary>
-        /// TrackcountLimitCompare control.
+        /// TrackCountLimitCompare control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator TrackcountLimitCompare;
+        protected global::System.Web.UI.WebControls.CompareValidator TrackCountLimitCompare;
         
         /// <summary>
-        /// TrackcountLimitRange control.
+        /// TrackCountLimitRange control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator TrackcountLimitRange;
+        protected global::System.Web.UI.WebControls.RangeValidator TrackCountLimitRange;
         
         /// <summary>
         /// ValidationSummary1 control.

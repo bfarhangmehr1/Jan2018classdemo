@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{58F08A8B-3019-4051-864D-3FF3423D7776}</ProjectGuid>
+    <ProjectGuid>{59EE60E8-8161-44EC-A1F5-E6EB308071C1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ChinookSystem</RootNamespace>
@@ -70,9 +70,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\AlbumContoller.cs" />
+    <Compile Include="BLL\AlbumContrroller.cs" />
     <Compile Include="BLL\ArtistController.cs" />
     <Compile Include="BLL\BusinessRuleException.cs" />
+    <Compile Include="BLL\EmployeeController.cs" />
     <Compile Include="BLL\GenreController.cs" />
     <Compile Include="BLL\MediaTypeController.cs" />
     <Compile Include="BLL\PlaylistController.cs" />
@@ -88,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Chinook.Data\Chinook.Data.csproj">
-      <Project>{c8890684-3713-47c5-9c8a-f3969b8d5df0}</Project>
+      <Project>{b6e85d59-fba8-4bf4-b384-f893ba7e2f5b}</Project>
       <Name>Chinook.Data</Name>
     </ProjectReference>
   </ItemGroup>

@@ -11,4 +11,5 @@ namespace Chinook.Data.POCOs
         public string songtitle { get; set; }
         public string songgenre { get; set; }
     }
+
 }

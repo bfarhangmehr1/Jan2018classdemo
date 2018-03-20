@@ -5,8 +5,11 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using Jan2018DemoWebsite.Models;
-using AppSecurity.BLL;
+
+#region Additional Namespaces
 using AppSecurity.Entities;
+using AppSecurity.BLL;
+#endregion
 
 namespace Jan2018DemoWebsite.Account
 {

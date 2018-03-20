@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 #region Additional Namespaces
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity;
@@ -10,10 +11,8 @@ using AppSecurity.DAL;
 using AppSecurity.Entities;
 #endregion
 
-
 namespace AppSecurity.BLL
 {
-
     public class ApplicationRoleManager : RoleManager<IdentityRole>
     {
         private ApplicationUserManager UserManager { get; set; }

@@ -10,7 +10,7 @@
 namespace Jan2018DemoWebsite.SamplePages {
     
     
-    public partial class AlbumDetailes {
+    public partial class AlbumDetails {
         
         /// <summary>
         /// Label1 control.
@@ -40,13 +40,13 @@ namespace Jan2018DemoWebsite.SamplePages {
         protected global::System.Web.UI.WebControls.ListView AlbumTracks;
         
         /// <summary>
-        /// AlbumTracksODS control.
+        /// AlbumTrackODS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource AlbumTracksODS;
+        protected global::System.Web.UI.WebControls.ObjectDataSource AlbumTrackODS;
         
         /// <summary>
         /// Label3 control.

@@ -8,7 +8,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System.Threading.Tasks;
 using Jan2018DemoWebsite.Models;
+#region Additional Namespaces
 using AppSecurity.BLL;
+#endregion
 
 namespace Jan2018DemoWebsite.Account
 {
