@@ -8,6 +8,9 @@ using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Jan2018DemoWebsite.Models;
+using AppSecurity.DAL;
+using AppSecurity.BLL;
+using AppSecurity.Entities;
 
 namespace Jan2018DemoWebsite
 {

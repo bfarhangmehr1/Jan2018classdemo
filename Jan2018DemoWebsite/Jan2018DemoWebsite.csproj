@@ -303,7 +303,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="WebConnectionStrings.config" />
+    <Content Include="WebConnectionStrings.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
@@ -524,6 +526,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AppSecurity\AppSecurity.csproj">
+      <Project>{09dbdd39-02c3-4b99-96bc-7315dfb8329c}</Project>
+      <Name>AppSecurity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Chinook.Data\Chinook.Data.csproj">
       <Project>{c8890684-3713-47c5-9c8a-f3969b8d5df0}</Project>
       <Name>Chinook.Data</Name>

@@ -8,6 +8,8 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Jan2018DemoWebsite.Models;
+using AppSecurity.BLL;
+using AppSecurity.Entities;
 
 namespace Jan2018DemoWebsite.Account
 {
