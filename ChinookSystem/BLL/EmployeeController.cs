@@ -45,5 +45,13 @@ namespace ChinookSystem.BLL
                 return results.ToList();
             }
         }
+        public Employee Employee_Get(int employeeid)
+        {
+            using (var context = new ChinookContext())
+            {
+                return context.Employees.Find(employeeid);
+            }
+
+        }
     }
 }
