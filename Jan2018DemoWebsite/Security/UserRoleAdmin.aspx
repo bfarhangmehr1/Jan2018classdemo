@@ -34,7 +34,7 @@
                             <asp:ListView ID="UserListView" runat="server" 
                                 DataSourceID="UserListViewODS"
                                 InsertItemPosition="LastItem"
-                                ItemType="AppSecurity.Entities.UserProfile"
+                                ItemType="AppSecurity.POCOs.UserProfile"
                                 DataKeyNames="UserId"
                                 OnItemInserting="UserListView_ItemInserting"
                                 OnItemDeleted="RefreshAll"
@@ -114,7 +114,7 @@
                             </InsertItemTemplate>
                         </asp:ListView>
                         <asp:ObjectDataSource ID="UserListViewODS" runat="server" 
-                            DataObjectTypeName="AppSecurity.Entities.UserProfile" 
+                            DataObjectTypeName="AppSecurity.POCOs.UserProfile" 
                             DeleteMethod="RemoveUser" 
                             InsertMethod="AddUser" 
                             SelectMethod="ListAllUsers"
@@ -126,7 +126,7 @@
                              OnSelected="CheckForException">
                         </asp:ObjectDataSource>
                         <asp:ObjectDataSource ID="RoleNameODS" runat="server"
-                            DataObjectTypeName="AppSecurity.Entities.RoleName" 
+                            DataObjectTypeName="AppSecurity.POCOs.RoleName" 
                             OldValuesParameterFormatString="original_{0}" 
                             SelectMethod="ListAllRoleNames" 
                             TypeName="AppSecurity.BLL.ApplicationRoleManager">  
@@ -143,7 +143,7 @@
                                DataSourceID="RoleODS"
                                InsertItemPosition="LastItem"
                                DataKeyNames="RoleID"
-                               ItemType="AppSecurity.Entities.RoleProfile"
+                               ItemType="AppSecurity.POCOs.RoleProfile"
                                OnItemDeleted="RefreshAll"
                                OnItemInserted="RefreshAll">
                                <EmptyDataTemplate>
@@ -202,7 +202,7 @@
                                 OnSelected="CheckForException" 
                                 OnInserted="CheckForException" 
                                 OnDeleted="CheckForException" 
-                                DataObjectTypeName="AppSecurity.Entities.RoleProfile"> 
+                                DataObjectTypeName="AppSecurity.POCOs.RoleProfile"> 
                                <%--  OnObjectCreating="RoleODS_ObjectCreating"--%>
                             </asp:ObjectDataSource>
                         </ContentTemplate>
