@@ -28,5 +28,12 @@ namespace Jan2018DemoWebsite
             }
 
         }
+
+        protected void GetUserID_Click(object sender, EventArgs e)
+        {
+            //grap the username from security (User)
+            string username = User.Identity.Name;
+            UserDisplayName.Text = username;
+        }
     }
 }

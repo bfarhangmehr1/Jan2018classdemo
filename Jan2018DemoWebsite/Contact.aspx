@@ -13,5 +13,15 @@
     <address>
         <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
         <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-    </address>
+    </address><br /><br />
+    <a href="Security/UserRoleAdmin.aspx">Security/UserRoleAdmin.aspx</a>
+    <asp:Label ID="Label1" runat="server" Text="User Name">
+    </asp:Label>&nbsp;&nbsp;
+        <asp:Label ID="UserDisplayName" runat="server">
+    </asp:Label>&nbsp;&nbsp;
+        <asp:Label ID="EmployeeID" runat="server" Text=>
+    </asp:Label>&nbsp;&nbsp;
+        <asp:Label ID="EmployeeName" runat="server" >
+    </asp:Label>&nbsp;&nbsp;
+    <asp:LinkButton ID="GetUserID" runat="server" OnClick="GetUserID_Click">Press</asp:LinkButton>
 </asp:Content>

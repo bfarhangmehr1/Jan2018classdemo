@@ -17,6 +17,7 @@ using ChinookSystem.DAL;
 using System.ComponentModel;
 using Chinook.Data.Entities;
 using ChinookSystem.BLL;
+using Chinook.Data.POCOs;
 #endregion
 
 namespace AppSecurity.BLL
@@ -319,6 +320,48 @@ namespace AppSecurity.BLL
         public void RemoveUser(UserProfile userinfo)
         {
             this.Delete(this.FindById(userinfo.UserId));
+        }
+        #endregion
+
+        #region 
+        public EmployeeInfo User_GetEmployee(string username)
+        {
+            //get employeeid off the applicationUser record
+            //the Application User record represents an instance from the sql security table AspNetUser
+            // this is retrive a single value or the default null 
+            var employeeid = (from person in Users.ToList()
+                              where person.UserName.Equals(username)
+                              select person.EmployeeID).SingleOrDefault();
+            //was the record a employee
+          if(employeeid==null)
+                {
+                throw new Exception("not a registrated user member");
+                }
+          else
+            {
+                //get employee info
+                EmployeeInfo employeeinfo = null;
+                //connect to chinook context for Dbset<Employee>
+                using (var context = new ChinookContext())
+                {
+                    //look up employee info
+                    // value was retrive durring the first linq query is a system.Object
+                    //this System.Object has be cast into a string 
+                    //thus .ToString()
+                    employeeinfo = (from emp in context.Employees
+                                    where emp.EmployeeId.ToString().Equals(employeeid.ToString())
+                                    select new EmployeeInfo
+                                    {
+                                        EmployeeID = emp.EmployeeId,
+                                        FirstName = emp.FirstName,
+                                        LastName = emp.LastName
+                                    }).FirstOrDefault();
+                    if(employeeinfo==null)
+                    {
+                        throw new Exception("Not an employeeinfo")
+                    }
+                }
+            }
         }
         #endregion
     }
