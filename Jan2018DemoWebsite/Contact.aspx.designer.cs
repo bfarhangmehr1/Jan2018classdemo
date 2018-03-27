@@ -22,13 +22,13 @@ namespace Jan2018DemoWebsite {
         protected global::DMIT2018Common.UserControls.MessageUserControl MessageUserControl;
         
         /// <summary>
-        /// Label1 control.
+        /// label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label label1;
         
         /// <summary>
         /// UserDisplayName control.
@@ -58,12 +58,12 @@ namespace Jan2018DemoWebsite {
         protected global::System.Web.UI.WebControls.Label EmployeeName;
         
         /// <summary>
-        /// GetUserID control.
+        /// GetUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton GetUserID;
+        protected global::System.Web.UI.WebControls.LinkButton GetUserName;
     }
 }
