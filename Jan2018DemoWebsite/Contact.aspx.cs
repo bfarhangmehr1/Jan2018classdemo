@@ -1,4 +1,5 @@
-﻿using AppSecurity.Entities;
+﻿using AppSecurity.BLL;
+using AppSecurity.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,16 @@ namespace Jan2018DemoWebsite
             //grap the username from security (User)
             string username = User.Identity.Name;
             UserDisplayName.Text = username;
-        }
+            //obtain the employee informatin for this username
+            MessageUserControl.TryRun(() =>
+            //connect to the Application 
+            ApplicationUserManager secmgr = new ApplicationUserManager(
+                UserStored<ApplicationUser>(new ApplicationDbContext
+                ()));
+            EmployeeInfo info = secmgr.User_GetEmploye(username);
+            EmployeeID.Text = info.EmployeeID.ToString();
+            EmployeeName=
+        });
+
     }
 }
