@@ -18,13 +18,14 @@
         <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
     </address><br /><br />
     <uc1:MessageUserControl runat="server" ID="MessageUserControl" />
-    <asp:Label ID="Label1" runat="server" Text="User Name">
+    <asp:Label ID="label1" runat="server" Text=" User Name">
     </asp:Label>&nbsp;&nbsp;
-        <asp:Label ID="UserDisplayName" runat="server">
+     <asp:Label ID="UserDisplayName" runat="server" >
     </asp:Label>&nbsp;&nbsp;
-        <asp:Label ID="EmployeeID" runat="server" Text=>
+     <asp:Label ID="EmployeeID" runat="server" >
     </asp:Label>&nbsp;&nbsp;
-        <asp:Label ID="EmployeeName" runat="server" >
+    <asp:Label ID="EmployeeName" runat="server" >
     </asp:Label>&nbsp;&nbsp;
-    <asp:LinkButton ID="GetUserID" runat="server" OnClick="GetUserID_Click">Press</asp:LinkButton>
+    <asp:LinkButton ID="GetUserName" runat="server" OnClick="GetUserName_Click">
+        Press to get User Name</asp:LinkButton>
 </asp:Content>

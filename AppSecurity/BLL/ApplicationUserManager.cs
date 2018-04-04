@@ -22,8 +22,8 @@ using Chinook.Data.POCOs;
 
 namespace AppSecurity.BLL
 {
-    [DataObject]
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
+    [DataObject]
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {
         #region Constants
@@ -323,31 +323,33 @@ namespace AppSecurity.BLL
         }
         #endregion
 
-        #region 
+        #region Auxiluary Methods
         public EmployeeInfo User_GetEmployee(string username)
         {
-            //get employeeid off the applicationUser record
-            //the Application User record represents an instance from the sql security table AspNetUser
-            // this is retrive a single value or the default null 
+            //get the employeeid off the ApplicationUser record
+            //the Application User record represents an instance
+            //    from the sql security table AspNetUsers
+            //this is retreive a single value or the default null
             var employeeid = (from person in Users.ToList()
                               where person.UserName.Equals(username)
                               select person.EmployeeID).SingleOrDefault();
-            //was the record a employee
-          if(employeeid==null)
-                {
-                throw new Exception("not a registrated user member");
-                }
-          else
+            //was the record a user
+            if (employeeid == null)
             {
-                //get employee info
+                throw new Exception("Not a registered user member");
+            }
+            else
+            {
+                //get the employee info
                 EmployeeInfo employeeinfo = null;
-                //connect to chinook context for Dbset<Employee>
+                //connect to Chinook context class for DbSet<Employee>
                 using (var context = new ChinookContext())
                 {
-                    //look up employee info
-                    // value was retrive durring the first linq query is a system.Object
-                    //this System.Object has be cast into a string 
-                    //thus .ToString()
+                    //lookup employee record
+                    //the value that was retreive during the first
+                    //    linq query is a System.Object
+                    //this System.Object has be cast into a string
+                    //    thus .ToString()
                     employeeinfo = (from emp in context.Employees
                                     where emp.EmployeeId.ToString().Equals(employeeid.ToString())
                                     select new EmployeeInfo
@@ -356,13 +358,14 @@ namespace AppSecurity.BLL
                                         FirstName = emp.FirstName,
                                         LastName = emp.LastName
                                     }).FirstOrDefault();
-                    if(employeeinfo==null)
+                    if (employeeinfo == null)
                     {
-                        throw new Exception("Not an employeeinfo")
+                        throw new Exception("Not an employee");
                     }
                 }
+                return employeeinfo;
             }
         }
         #endregion
-    }
+    }//eoc
 }

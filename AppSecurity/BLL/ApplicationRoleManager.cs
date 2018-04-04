@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity;
 using AppSecurity.DAL;
 using AppSecurity.Entities;
 using System.ComponentModel;
- using AppSecurity.POCOs;
+using AppSecurity.POCOs;
 #endregion
 
 namespace AppSecurity.BLL
@@ -108,6 +108,6 @@ namespace AppSecurity.BLL
 
         }
         #endregion
-    }
+    }//eoc
 
 }
