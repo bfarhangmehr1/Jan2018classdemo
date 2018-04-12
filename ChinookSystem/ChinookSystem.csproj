@@ -82,10 +82,124 @@
     <Compile Include="DAL\ChinookContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Chinook.Data.POCOs.ArtistAlbumCounts.datasource" />
+    <None Include="Properties\DataSources\Chinook.Data.POCOs.ClientInfo.datasource" />
+    <None Include="Properties\DataSources\Chinook.Data.POCOs.EmployeeInfo.datasource" />
+    <None Include="Properties\DataSources\Chinook.Data.POCOs.GenreAlbumReport.datasource" />
+    <None Include="Properties\DataSources\Chinook.Data.POCOs.SelectionList.datasource" />
+    <None Include="Properties\DataSources\Chinook.Data.POCOs.TrackList.datasource" />
+    <None Include="Properties\DataSources\Chinook.Data.POCOs.TracksAndGenre.datasource" />
+    <None Include="Properties\DataSources\Chinook.Data.POCOs.UserPlaylistTrack.datasource" />
+    <None Include="Properties\DataSources\ChinookSystem.BLL.AlbumController.datasource" />
+    <None Include="Properties\DataSources\ChinookSystem.BLL.ArtistController.datasource" />
+    <None Include="Properties\DataSources\ChinookSystem.BLL.EmployeeController.datasource" />
+    <None Include="Properties\DataSources\ChinookSystem.BLL.GenreController.datasource" />
+    <None Include="Properties\DataSources\ChinookSystem.BLL.MediaTypeController.datasource" />
+    <None Include="Properties\DataSources\ChinookSystem.BLL.PlaylistController.datasource" />
+    <None Include="Properties\DataSources\ChinookSystem.BLL.PlaylistTracksController.datasource" />
+    <None Include="Properties\DataSources\ChinookSystem.BLL.TrackController.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Database.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbConfigurationTypeAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbContextTransaction.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbFunctionAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbFunctions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbModelBuilder.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbModelBuilderVersionAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbSet.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.CommitFailedException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.CommitFailureHandler.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbChangeTracker.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbCollectionEntry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbCompiledModel.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbComplexPropertyEntry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbConnectionInfo.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbContextConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbContextInfo.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbEntityEntry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbExecutionStrategy.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbMemberEntry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbModel.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbModelStore.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbPropertyEntry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbPropertyValues.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbProviderInfo.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbQuery.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbRawSqlQuery.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbReferenceEntry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbSqlQuery.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbUpdateConcurrencyException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbUpdateException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DefaultDbModelStore.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DefaultExecutionStrategy.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DefaultManifestTokenResolver.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.EdmMetadata.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.EdmxReader.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.EdmxWriter.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.ExecutionStrategyKey.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbAsyncEnumerable.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbAsyncEnumerator.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbAsyncQueryProvider.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbConnectionFactory.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbExecutionStrategy.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbModelCacheKey.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbModelCacheKeyProvider.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbProviderFactoryResolver.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IManifestTokenResolver.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IMetadataAnnotationSerializer.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IncludeMetadataConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IObjectContextAdapter.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IProviderInvariantName.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.LocalDbConnectionFactory.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.ModelContainerConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.ModelNamespaceConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.ObjectReferenceEqualityComparer.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.RetryLimitExceededException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.SqlCeConnectionFactory.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.SqlConnectionFactory.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.SuppressDbSetInitializationAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.TableExistenceChecker.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.TransactionContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.TransactionHandler.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.TransactionRow.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.UnintentionalCodeFirstException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.AssociationMappingConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.BinaryPropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.CascadableNavigationPropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConfigurationRegistrar.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionDeleteModificationStoredProcedureConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionInsertModificationStoredProcedureConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionModificationStoredProcedureConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionModificationStoredProceduresConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionPrimitivePropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionsConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionTypeConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionUpdateModificationStoredProcedureConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.DateTimePropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.DecimalPropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ForeignKeyAssociationMappingConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ForeignKeyNavigationPropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.IndexConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.LengthColumnConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.LengthPropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ManyToManyAssociationMappingConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ModificationStoredProcedureConfigurationBase.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.NotNullConditionConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.PrimaryKeyIndexConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.PrimitiveColumnConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.PrimitivePropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.PropertyConventionConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.PropertyMappingConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.StringColumnConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.StringPropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.TypeConventionConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ValueConditionConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ObservableCollectionExtensions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.QueryableExtensions.datasource" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Chinook.Data\Chinook.Data.csproj">
@@ -93,6 +207,7 @@
       <Name>Chinook.Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
